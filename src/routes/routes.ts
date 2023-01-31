@@ -1,6 +1,5 @@
-import { getTODO, itsWorks } from "@controllers/todo"
+import { getMovies } from "@controllers/movies"
 
 export const defineRoutes = (app) => {
-  app.get("/", itsWorks)
-  app.get("/todo", getTODO)
+  app.get("/movies", getMovies)
 }

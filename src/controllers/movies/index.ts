@@ -26,3 +26,18 @@ export const getMovieId = async (req, res) => {
     })
   }
 }
+
+export const postMovie = async (req, res) => {
+  try {
+    const moviesRepository = getRepository(Movies)
+    const entidade = req.body
+    const criandoMovie = await moviesRepository.save(entidade)
+    return res.status(200).json({
+      criandoMovie,
+      auth: true,
+      message: "sucesso",
+    })
+  } catch (error) {
+    return res.status(500).json({ auth: false, message: "falha" })
+  }
+}

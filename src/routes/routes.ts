@@ -14,4 +14,5 @@ export const defineRoutes = (app) => {
   app.post("/movies", postMovie)
   app.put("/movies/:id", putMovieId)
   app.delete("/movies/:id", deleteMovieId)
+  app.put("/movies/:id", putMovieId)
 }

@@ -63,11 +63,26 @@ export const deleteMovieId = async (req, res) => {
     const moviesDeleteIdRepository = getRepository(Movies)
     const deleteId = await moviesDeleteIdRepository.delete(id)
     return res.status(200).json({
-      message: "Ok",
+      message: "sucesso",
     })
   } catch (error) {
     return res.status(500).json({
-      message: "Erro",
+      message: "falha",
     })
+  }
+}
+
+export const putMovieId = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { body } = req
+    const moviesRepository = getRepository(Movies)
+    const editandoMovie = await moviesRepository.update(id, body)
+    return res.status(200).json({
+      auth: true,
+      message: "sucesso",
+    })
+  } catch (error) {
+    return res.status(500).json({ auth: false, message: "falha" })
   }
 }

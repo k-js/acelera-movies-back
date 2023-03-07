@@ -31,6 +31,7 @@ export const postMovie = async (req, res) => {
   try {
     const moviesRepository = getRepository(Movies)
     const entidade = req.body
+    entidade.note = Number(entidade.note)
     const criandoMovie = await moviesRepository.save(entidade)
     return res.status(200).json({
       criandoMovie,
